@@ -2,4 +2,43 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Google Keep Color Palette -->
+
+    <!-- Background Colors -->
+    <color name="keep_background">#F8F9FA</color>
+    <color name="keep_surface">#FFFFFF</color>
+
+    <!-- Primary Colors -->
+    <color name="keep_primary">#FDD835</color>
+    <color name="keep_primary_dark">#F57F17</color>
+
+    <!-- Text Colors -->
+    <color name="keep_text_primary">#202124</color>
+    <color name="keep_text_secondary">#5F6368</color>
+    <color name="keep_text_hint">#9AA0A6</color>
+
+    <!-- Note Colors -->
+    <color name="note_default">#FFFFFF</color>
+    <color name="note_yellow">#FFF475</color>
+    <color name="note_orange">#FBBC04</color>
+    <color name="note_red">#F28B82</color>
+    <color name="note_pink">#FDCFE8</color>
+    <color name="note_purple">#D7AEFB</color>
+    <color name="note_blue">#AECBFA</color>
+    <color name="note_teal">#A7FFEB</color>
+    <color name="note_green">#CCFF90</color>
+    <color name="note_brown">#E6C9A8</color>
+    <color name="note_gray">#E8EAED</color>
+
+    <!-- Accent Colors -->
+    <color name="keep_accent">#1976D2</color>
+    <color name="keep_icon">#5F6368</color>
+    <color name="keep_divider">#DADCE0</color>
+
+    <!-- Ripple and States -->
+    <color name="keep_ripple">#1F000000</color>
+    <color name="keep_pressed">#0A000000</color>
+
+
 </resources>

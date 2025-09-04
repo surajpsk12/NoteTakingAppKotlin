@@ -16,14 +16,16 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var noteViewModel: NoteViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        //setContentView(R.layout.activity_main)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setUpViewModel()
+        setUpUI()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -34,9 +36,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpViewModel() {
         val noteRepository = NoteRepository(NoteDatabase(this))
-        val viewModelProviderFactory = NoteViewModelFactory(application,noteRepository)
+        val viewModelProviderFactory = NoteViewModelFactory(application, noteRepository)
 
-        noteViewModel = ViewModelProvider(this, viewModelProviderFactory).get(NoteViewModel::class.java)
+        noteViewModel = ViewModelProvider(this, viewModelProviderFactory)[NoteViewModel::class.java]
+    }
 
+    private fun setUpUI() {
+        // Enable edge-to-edge with proper Google Keep styling
+        window.statusBarColor = getColor(R.color.keep_background)
+        window.navigationBarColor = getColor(R.color.keep_background)
     }
 }
