@@ -52,6 +52,14 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
         notesViewModel = (activity as MainActivity).noteViewModel
         mView = view
 
+        // Set up the toolbar for menu display
+        (activity as MainActivity).setSupportActionBar(binding.toolbar)
+        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Handle back navigation
+        binding.toolbar.setNavigationOnClickListener {
+            view.findNavController().popBackStack()
+        }
     }
 
 

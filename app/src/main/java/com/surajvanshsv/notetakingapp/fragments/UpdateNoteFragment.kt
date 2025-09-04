@@ -54,20 +54,37 @@ class UpdateNoteFragment : Fragment(R.layout.fragment_update_note) {
 
         notesViewModel = (activity as MainActivity).noteViewModel
         currentNote = args.note!!
+
+        // Set the existing note data in the EditTexts
         binding.etNoteTitleUpdate.setText(currentNote.noteTitle)
         binding.etNoteBodyUpdate.setText(currentNote.noteBody)
 
+        // Set up the toolbar for menu display
+        (activity as MainActivity).setSupportActionBar(binding.toolbar)
+        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Handle back navigation
+        binding.toolbar.setNavigationOnClickListener {
+            view.findNavController().popBackStack()
+        }
+
+        // Handle FAB click to save changes
+        binding.fabDone.setOnClickListener {
+            saveNote(view)
+        }
+    }
+
+    private fun saveNote(view: View) {
         val title = binding.etNoteTitleUpdate.text.toString().trim()
         val body = binding.etNoteBodyUpdate.text.toString().trim()
 
-        if(title.isNotEmpty()){
-            val note = Note(currentNote.id,title , body )
+        if (title.isNotEmpty()) {
+            val note = Note(currentNote.id, title, body)
             notesViewModel.updateNote(note)
+            Toast.makeText(context, "Note updated successfully", Toast.LENGTH_SHORT).show()
             view.findNavController().navigate(R.id.action_updateNoteFragment_to_homeFragment)
         } else {
-            Toast.makeText(context ,
-                "Please enter note title ",
-                Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Please enter note title", Toast.LENGTH_LONG).show()
         }
     }
 

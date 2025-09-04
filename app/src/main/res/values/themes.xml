@@ -3,7 +3,26 @@
     <style name="Base.Theme.NoteTakingApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/keep_background</item> <!-- Example: if you want toolbar to match keep_background -->
+        <item name="colorPrimaryVariant">@color/keep_background_dark</item> <!-- Example -->
+        <item name="colorOnPrimary">@color/keep_text_primary</item> <!-- Example: Text/icon color on primary color -->
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.NoteTakingApp" parent="Base.Theme.NoteTakingApp" />
+
+    <!-- AppBarTheme specific for this app -->
+    <style name="Theme.NoteTakingApp.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" >
+        <!-- Or use ThemeOverlay.MaterialComponents.Dark.ActionBar if you are more on M2 components -->
+        <!-- Or ThemeOverlay.Material3.DynamicColors.Dark.ActionBar for dynamic colors -->
+    </style>
+
+    <!-- PopupTheme specific for this app -->
+    <style name="Theme.NoteTakingApp.PopupOverlay" parent="ThemeOverlay.Material3.Light" >
+        <!-- Or use ThemeOverlay.MaterialComponents.Light -->
+        <!-- Or ThemeOverlay.Material3.DynamicColors.Light for dynamic colors -->
+    </style>
+
 </resources>

@@ -39,6 +39,7 @@
     <!-- Ripple and States -->
     <color name="keep_ripple">#1F000000</color>
     <color name="keep_pressed">#0A000000</color>
+    <color name="keep_background_dark">#E0E0E0</color>
 
 
 </resources>

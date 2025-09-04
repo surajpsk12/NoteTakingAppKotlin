@@ -10,6 +10,7 @@ import com.surajvanshsv.notetakingapp.fragments.HomeFragment
 import com.surajvanshsv.notetakingapp.model.Note
 import kotlin.random.Random
 import android.graphics.Color
+import android.view.View
 import androidx.navigation.findNavController
 import com.surajvanshsv.notetakingapp.fragments.HomeFragmentDirections
 
@@ -40,6 +41,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         val currentNote = differ.currentList[position]
         holder.itemBinding.tvNoteTitle.text = currentNote.noteTitle
         holder.itemBinding.tvNoteBody.text = currentNote.noteBody
+
         val color = Color.argb(
             255,
             Random.nextInt(256),
@@ -47,11 +49,11 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
             Random.nextInt(256)
         )
         holder.itemBinding.ibColor.setBackgroundColor(color)
+        holder.itemBinding.ibColor.visibility = View.VISIBLE // Add this line
+
         holder.itemView.setOnClickListener {
             val direction = HomeFragmentDirections.actionHomeFragmentToUpdateNoteFragment(currentNote)
-
             it.findNavController().navigate(direction)
-
         }
     }
 

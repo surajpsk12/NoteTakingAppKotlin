@@ -53,7 +53,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         // Set up the toolbar as action bar
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (activity as AppCompatActivity).supportActionBar?.apply {
-            title = "Notes"
+            title = "NoteTakingApp"
             setDisplayShowTitleEnabled(true)
         }
     }
